@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<link href="main.css" rel="stylesheet" type="text/css">
+		<title>I101 Home Page</title>
+		
+		<script>
+			function changeImage(pickID) {
+				var image = document.getElementById(pickID);
+				if (image.src.match("tatum1")) {
+					image.src = "images/tatum2.jpg";
+				}
+				else if (image.src.match("tatum2")) {
+					image.src = "images/tatum1.jpg"
+				}
+				else if (image.src.match("king1")) {
+					image.src = "images/king2.jpg"
+				}
+				else if (image.src.match("king2")) {
+					image.src = "images/king1.jpg"
+				}
+				else {
+					alert("An error occured");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1><center><b><u>I101 Home Page</u></b></center></h1>
+		<h3><b>A picture of the National Gatorade Player of the Year and former classmate, Jayton Tatum.</b></h3><br />
+		<img id="tatum" src="images/tatum1.jpg" width="300" height="300" onclick="changeImage('tatum')" ><br />
+		<p>Wanna see a different pictrue of Jayson Tatum? Just click the picture of him.</p>
+		<h3><b>A picture of Lily King at the Olympics Games in Rio.</b></h3>
+		<img id="king" src="images/king1.jpg" width="300" height="300" onclick="changeImage('king')" >
+		<p>Wanna see a different picture of Lily King? Just click the picture of her.</p>
+		<hr />
+		<h2><i>Into to Me:</i></h2>
+		<p>My name is Ben Duggan and I am from St. Louis, Mo (technically Chesterfield but people do know where that is).  I went to Chaminade College Preparatory School.I have been doing simple programing sense the 8th grade.  My in sophomore year of school I took Java and then AP Java in Junior year.  Senior year I took a web design class.  I have my own site (although nothing is really on it) which you can check out <a href="http://bensduggan.com">here</a>.  <strong>Fun Fact: </strong> The Mens Gatorade National Basketball Player of the Year went to my school.</p>
+		<h2><i>Into to My Home Page:</i></h2>
+		<p>Welcome to my I101 home page! This is where links to all my labs will be posted.  This class is designed to teach the fundamentals of Informatics and Computing and we will get an over view of HTML, CSS, Javascript, and Python.  I hope you enjoy my webpage, feel free to click around!</p>
+		<h2><i>Top of my College Bucket List:</i></h2>
+		<p>At the top of my college is probably to do research and swim in the fountan.</p>
+		<hr />
+		<h3><u>I101 Labs</u></h3>
+		<ul>
+			<li><a href="/~bendugga/i101/w1lab2.html">Week 1 Lab 2</a></li>
+			<li><a href="/~bendugga/i101/w2lab1.html">Week 2 Lab 1</a></li>
+			<li><a href="/~bendugga/i101/w2lab2.html">Week 2 Lab 2</a></li>
+			<li><a href="/~bendugga/i101/w3lab2.html">Week 3 Lab 2</a></li>
+			<li><a href="/~bendugga/i101/w4lab1.html">Week 4 Lab 1</a></li>
+			<li><a href="/~bendugga/i101/w4lab2.html">Week 4 Lab 2</a></li>
+			<li><a href="/~bendugga/i101/w5lab2.html">Week 5 Lab 2</a></li>
+			<li><a href="/~bendugga/i101/w6lab1.html">Week 6 Lab 1</a></li>
+			<li><a href="/~bendugga/i101/w6lab2.html">Week 6 Lab 2</a></li>
+			<li><a href="/~bendugga/i101/w7lab1.html">Week 7 Lab 1</a></li>
+			<li><a href="/~bendugga/i101/w7lab2.html">Week 7 Lab 2</a></li>
+			<li><a href="/~bendugga/i101/w9lab1.html">Week 9 Lab 1</a></li>
+			<li><a href="/~bendugga/i101/w9lab2.html">Week 9 Lab 2</a></li>
+			<li><a href="/~bendugga/i101/w10lab1.html">Week 10 Lab 1</a></li>
+			<li><a href="/~bendugga/i101/w10lab2.html">Week 10 Lab 2</a></li>
+		</ul>
+		<hr />
+		<h3><u>I101 Resorces</u></h3>
+		<ol>
+			<li><a href="http://www.indiana.edu/~i101/">I101 Course Home Page</a></li>
+			<li><a href="http://www.indiana.edu/~i101/schedule.html">I101 Course Scheduel</a></li>
+			<li><a href="http://www.indiana.edu/~i101/office-hours.html">I101 Course Office Hours</a></li>
+		</ol>
+	</body>
+</html>
