@@ -22,8 +22,6 @@ plugins:
 - jemoji
 - jekyll-remote-theme
 
-
-
 # Site settings
 title: Ben S. Duggan
 email: dugganbens@gmail.com
@@ -32,13 +30,6 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: BenSDuggan
 github_username:  BenSDuggan
-
-
-
-
-
-
-
 
 ###################
 ## Site settings  #
@@ -51,14 +42,12 @@ description: "" # Site description and default description, also used in jekyll-
 url: "https://bensduggan.com" # Site url, also used in jekyll-seo-tag
 baseurl: ""
 repo: "https://github.com/BenSDuggan"
-email: "dugganbens.com"
+email: "dugganbens@gmail.com"
 # disqus: "alembic-1" # Blog post comments, uncomment the option and set the site ID from your Disqus account
 # google_analytics: ''
 # google_analytics_anonymize_ip: ''
 # service_worker: false # Will turn off the service worker if set to false
 css_inline: true # Will insert all styles into a single <style> block in the <head> element and remove the style <link> reference
-
-
 
 
 ###################
@@ -83,31 +72,17 @@ social_links: # Appears in sidebar. Set the urls then uncomment and comment out 
   email: dugganbens@gmail.com
   Twitter: https://twitter.com/BenSDuggan
   LinkedIn: https://www.linkedin.com/in/ben-duggan-b3a860164/
-  link: https://bensduggan.com
+
+
+# Collections
+collections:
+  projects:
+    title: Projects
+    output: true
+    description: "Research and personal projects"
+
 
 # sharing_links: # Appear at the bottom of single blog posts, add as desired. The value can be 'true' or the desired button colour
 #   Twitter: "#0d94e7"
 #   facebook: "#3B5998"
 #   Email: true
-
-
-
-
-
-
-
-
-
-
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
