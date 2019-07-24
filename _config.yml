@@ -59,9 +59,9 @@ navigation_header:
 - title: About
   url: /about
 - title: Projects
-  url: /projects.html
+  url: /projects
 - title: Blog
-  url: /blog.html
+  url: /blog
 
 navigation_footer:
 - title: Home
