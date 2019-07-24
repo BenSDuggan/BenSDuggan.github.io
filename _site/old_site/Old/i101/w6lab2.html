@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>w6lab2</title>
+		<script>
+			function newFunction() {
+				document.getElementById("script1").innerHTML = "It Worked!"
+			}
+			function contentChange1() {
+				document.getElementById("contentChange1").innerHTML = "ce typing. You can just click a button and the rest of the text will come onto the screen.  Javascript is incredibly important in making WW3 a reality.";
+			}
+			function styleChange1() {
+				var x = document.getElementById("styleChange1").style;
+				x.fontSize = "25px";
+				x.color = "red";
+			}
+			function styleChange2() {
+				var x = document.getElementById("styleChange2").style;
+				x.fontWeight="bold";
+				x.backgroundColor="orange";
+				x.fontSize="25px";
+			}
+			function styleChange3() {
+				var x = document.getElementById("styleChange3").style;
+				x.fontStyle="italic";
+				x.backgroundColor="black";
+				x.color="white";
+				x.fontSize="25px";
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h1>JS1</h1>
+		<p id="script1">This is my first javascirpt</P>
+		<button type="button" onclick="newFunction()">Click Me</button>
+		
+		<h1>JS + CSS</h1>
+		<p id="styleChange1">Javascript can change style text too</p>
+		<button type="button" onclick="styleChange1()">Click Me</button>
+		
+		<h2>Try it again!</h2>
+		<p id="styleChange2">Dont you just love what JS can do!</p>
+		<button type="button" onclick="styleChange2()">Click Me</button>
+		
+		<h2> JavaScript Homework </h2>
+		<p id="contentChange1">One of the cool things with Javascirpt is that you can change the content of elements.  This can be a great tool for developers who want to make dynamic web content.  Another great use for this tool is to act like a scroll. So if you run out of spa</p>
+		<button type="button" onclick="contentChange1()">Click Me</button>
+		<p id="styleChange3">Javascript can do so much more than just change the text in an element.  It can also style those elements.  This is so powerful because it allows content to change without the user having to refresh.</p>
+		<button type="button" onclick="styleChange3()">Click Me</button>
+	</body>
+</html>

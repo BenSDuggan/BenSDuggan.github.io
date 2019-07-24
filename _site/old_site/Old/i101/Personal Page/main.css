@@ -1,0 +1,246 @@
+/*
+ * i101 Individual Project
+ * Author: Ben Duggan
+ * Date: 11/16/16
+ */
+
+/*
+ * Elements
+ */
+
+body{
+	margin: 0;
+	margin-top: 60px;
+	background-color: #143153; 
+	font-family: 'Roboto Slab', serif;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	color: #474747;
+}
+a.hover {
+	text-decoration: none;
+	color: #474747;
+}
+a.visited {
+	text-decoration: none;
+	color: #474747;
+}
+
+/*
+ * Classes
+ */
+
+/* Total Menu Container */
+.menuBanner {
+	position: fixed;
+	background-color: #4b4a49;
+	width: 100%;
+	min-height: 60px;
+	left: 0;
+	top: 0;
+	padding: 0;
+	margin: 0;
+	color: #fff;
+	/* box-shadow: 0px 5px 5px #adc0d7; */
+}
+/* Title */
+.menuMain-left {
+	display: inline-block;
+	float: left;
+	font-size: 25px;
+	margin-left: 1%
+}
+.menuMain-left h1 {
+	margin: 0;
+	padding: 0 0;
+	font-weight: bolder;
+}
+.menuMain-left a {
+	color: #fff;
+}
+/* Menu */
+.menuMain-right {
+	display: inline-block;
+	float: right;
+	
+}
+.menuMain-right ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	font-size: 20px;
+}
+
+.menuMain-right ul li {
+	float: left;
+	margin: 0px 5px;
+}
+.menuMain-right ul li a{
+	display: block;
+    text-align: center;
+    padding: 22px 16px;
+    color: #fff;
+}
+
+/* 
+ * Body CSS
+/*
+.bodyContain {
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 90%;
+	margin: 0;
+	padding: 10px 5%;
+	/background-color: #efefef;
+}
+*/
+.pageTile {
+	font-family: 'Poppins', sans-serif;
+	font-size: 40px;
+	color: #ff383f;
+}
+.box {
+	max-width: 100%;
+	min-height: 10px;
+	padding: 50px 15%;
+	margin: 0;
+	font-family: arial;
+	text-align: center;
+	font-size: 30px;
+	color: #3d3d3d;
+}
+
+.light {
+	background-color: white;
+}
+.dark {
+	background-color: #eee;
+}
+
+.welcome {
+	/* color: white; */
+	/*
+	background-image: url("images/duggan1.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -400px;
+    */
+   overflow: hidden;
+}
+.left1 {
+	float: left;
+	width: 47.5%;
+	margin-right: 2.5%;
+}
+.right1 {
+	float: right;
+	width: 47.5%;
+	margin-left: 2.5%;
+}
+.right1 img {
+	max-width:100%;
+	max-height:100%;
+}
+.about {
+	/*
+	background-color: #837eb1;
+	color: #1f1959;
+	color: #FFA500;
+	*/
+	background-image: url("images/duggan1.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -400px;
+}
+.projects {
+	
+}
+.projectContainer {
+	width: 100%;
+	min-height: 200px;
+	margin-top: 40px;
+	overflow: hidden;
+	padding-bottom: 16px;
+}
+.projectContainer img {
+	width: 100%;
+	height: 100%;
+	margin-bottom: 20px;
+}
+.projectContainer h4, p {
+	display: inline-block;
+}
+.projectContainer1-left {
+	width: 60%;
+	float: left;
+}
+.projectContainer1-right {
+	width: 39%;
+	float: right;
+}
+.projectContainer2-left {
+	width: 39%;
+	float: left;
+}
+.projectContainer2-right {
+	width: 60%;
+	float: right;
+}
+.projectContainer a {
+	border: 2px solid #3d3d3d;
+	padding: 14px 16px;
+}
+.resume-box {
+	
+}
+.resume-box a {
+	border: 2px solid #3d3d3d;
+	padding: 14px 16px;
+}
+.resume-box p {
+	margin-bottom: 29px;
+}
+
+.resume-welcome {
+	background-image: url("images/duggan2.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -400px;
+    min-height: 350px;
+    padding-top: 100px;
+}
+.resume-contain {
+	padding: 0;
+}
+.resume-contain img {
+	width: 80%;
+	text-align: center;
+}
+.footer {
+	min-height: 10px;
+	padding: 20px 15%;
+	/*background-color: #143153;*/
+	font-size: 20px;
+	background-image: url("images/duggan1.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -1200px;
+    color: #eee;
+}
+
+
