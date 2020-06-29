@@ -1,0 +1,272 @@
+<html>
+<head>
+	<style rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.css"></style>
+	<style>
+		canvas{
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+		</style>
+
+	<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+	<script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+</head>
+<body>
+	<div>
+		<canvas id="canvas"></canvas>
+	</div>
+	
+
+	<script>
+		window.chart_colors = {
+			red: 'rgb(255, 99, 132)',
+			orange: 'rgb(255, 159, 64)',
+			yellow: 'rgb(255, 205, 86)',
+			green: 'rgb(75, 192, 192)',
+			blue: 'rgb(54, 162, 235)',
+			purple: 'rgb(153, 102, 255)',
+			grey: 'rgb(201, 203, 207)'
+		};
+
+		// Firebase configuration
+		var firebase_config = {
+			apiKey: "AIzaSyAWxsW3bgG2sJyqgLdXgDMrRU0Mqymrzck",
+			authDomain: "aamc-verification.firebaseapp.com",
+			databaseURL: "https://aamc-verification.firebaseio.com",
+			projectId: "aamc-verification",
+			storageBucket: "aamc-verification.appspot.com",
+			messagingSenderId: "554096779220",
+			appId: "1:554096779220:web:13326c0d0db22c8f"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebase_config);
+
+		// Get the date records for a particular collection
+		function get_records(collection) {
+
+			var records_promise = function(resolve, reject) {
+				var records = {};
+
+				var database = firebase.firestore();
+
+				database.collection(collection).get().then((querySnapshot) => {
+					querySnapshot.forEach((doc) => {
+						records[doc.id] = doc.data();
+					});
+
+					resolve(records);
+				});
+
+				return;
+			}
+			
+			return new Promise(records_promise);
+		}
+
+		// Make the datasets for plotting from the FireBase collection records
+		function make_datasets(records) {
+			var labels = [];
+			var verification_time = [];
+			var electronic_transcript = [];
+			var paper_transcript = [];
+			var change_request = [];
+
+			var epochs = Object.keys(records)
+			epochs.sort(function(a, b)  {return a-b});
+
+			for(var i in epochs) {
+				var epoch = epochs[i];
+				var marked = records[epoch]["marked-date"];
+				var marked_date = new Date(marked);
+
+				// Skip this record if not uploaded at midnight and there is more than one uploaded on this day
+				if((new Date(records[epoch]["upload-date"])).getHours() != 0) {
+					//continue;
+				} 
+
+				// Check and set marked date
+				if(marked === null) {
+					labels.push(null);
+					verification_time.push(null);
+					electronic_transcript.push(null);
+				}
+				else { labels.push(marked); }
+
+				// Check and set ready-for-review date
+				if(records[epoch]["ready-for-review"] === null) {
+					verification_time.push(null);
+				}
+				else {
+					verification_time.push( Math.round( (marked_date - (new Date(records[epoch]["ready-for-review"]))) / 86400000 ) );
+				}
+				
+				// Check and set electronic-transcript date
+				if(records[epoch]["electronic-transcript"] === null) {
+					electronic_transcript.push(null);
+				}
+				else {
+					electronic_transcript.push( Math.round( (marked_date - (new Date(records[epoch]["electronic-transcript"]))) / 86400000 ) );
+				}
+
+				// Check and set paper-transcript date
+				if(records[epoch]["paper-transcript"] === null) {
+					paper_transcript.push(null);
+				}
+				else {
+					paper_transcript.push( Math.round( (marked_date - (new Date(records[epoch]["paper-transcript"]))) / 86400000 ) );
+				}
+
+				// Check and set change-request date
+				if(records[epoch]["change-request"] === null) {
+					change_request.push(null);
+				}
+				else {
+					change_request.push( Math.round( (marked_date - (new Date(records[epoch]["change-request"]))) / 86400000 ) );
+				}
+				
+			}
+
+			var data = {
+				labels: labels,
+				datasets: [{
+					label: "Verification time",
+					fill: false,
+					backgroundColor: window.chart_colors.red,
+					borderColor: window.chart_colors.red,
+					data: verification_time
+				},
+				{
+					label: "Electronic transcript time",
+					fill: false,
+					backgroundColor: window.chart_colors.orange,
+					borderColor: window.chart_colors.orange,
+					data: electronic_transcript
+				},
+				{
+					label: "Paper transcript time",
+					fill: false,
+					backgroundColor: window.chart_colors.yellow,
+					borderColor: window.chart_colors.yellow,
+					data: paper_transcript
+				},
+				{
+					label: "Change request time",
+					fill: false,
+					backgroundColor: window.chart_colors.blue,
+					borderColor: window.chart_colors.blue,
+					data: change_request
+				}]
+			};
+
+			return data;
+		}
+
+		var records = null;
+		get_records('2021-cycle').then(function(r) {
+			records = r;
+			console.log(records);
+
+			var data = make_datasets(records);
+			make_plot(data);
+		});
+
+		var config = {
+			type: 'line',
+			data: {
+				labels: ['June 5', 'June 6', 'June 7'], 
+				datasets: [{
+					label: "Verification",
+					data: [1, 3, 10]
+				}]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: '2021 AMCAS Application Times'
+				},
+				tooltips: {
+					mode: 'index',
+					intersect: false,
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Marked days'
+						}
+					}],
+					yAxes: [{
+						scaleLabel: {
+							display:     true,
+							labelString: 'Days taken to finish'
+						}
+					}]
+				}
+			}
+		};
+
+		function make_plot(data) {
+			var ctx = document.getElementById('canvas').getContext('2d');
+
+			var config = {
+				type: 'line',
+				data: data,
+				options: {
+					responsive: true,
+					title: {
+						display: true,
+						text: '2021 AMCAS Application Times'
+					},
+					tooltips: {
+						mode: 'index',
+						intersect: false,
+					},
+					hover: {
+						mode: 'nearest',
+						intersect: true
+					},
+					scales: {
+						xAxes: [{
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'Marked days'
+							}
+						}],
+						yAxes: [{
+							scaleLabel: {
+								display:     true,
+								labelString: 'Days taken to finish'
+							}
+						}]
+					}
+				}
+			};
+
+			var chart = new Chart(ctx, config);
+		}
+
+		function init() {
+			console.log('hello');
+
+
+		}
+		
+		// Run init when the DOM has loaded
+		document.addEventListener("DOMContentLoaded", init, false);
+
+	</script>
+
+
+</body>
+</html>

@@ -1,8 +1,8 @@
-const version = '20200301030712';
+const version = '20200628211844';
 const cacheName = `static::${version}`;
 
 const buildContentBlob = () => {
-  return ["/fun/science/simulation/2017/06/17/special-relativity.html","/iu/2017/06/16/i101-final-project.html","/about/","/blog.html","/categories.html","/projects/","/blog/","/","/projects.html","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/feed.xml","", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
+  return ["/about/","/blog.html","/categories.html","/projects/","/blog/","/","/projects.html","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/feed.xml","", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
   ]
 }
 

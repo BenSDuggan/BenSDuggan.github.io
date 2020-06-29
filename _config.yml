@@ -9,6 +9,8 @@ exclude:
 - README.md
 - Gemfile
 - Gemfile.lock
+- vendor
+- hide
 
 # Set plugins
 plugins:
@@ -27,7 +29,7 @@ title: Ben S. Duggan
 email: dugganbens@gmail.com
 description: The personal website of Ben Duggan
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "bensduggan.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: BenSDuggan
 github_username:  BenSDuggan
 
@@ -56,8 +58,6 @@ css_inline: true # Will insert all styles into a single <style> block in the <he
 navigation_header:
 - title: Home
   url: /
-- title: About
-  url: /about
 - title: Projects
   url: /projects
 - title: Blog

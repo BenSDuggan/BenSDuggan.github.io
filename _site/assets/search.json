@@ -5,20 +5,6 @@
   
     
     
-      {
-        "title": "i101 Final Project - Team Diversity",
-        "excerpt": "Our challenge was to find a solution to this problem: although we live in an age where computers dominate the market and allow more and more connectivity among people from all over the world, there are still millions of students and families without computers.\nHow might this problem be solved? To make the problem space smaller, please focus on people in the State of Indiana.\n\n",
-        "content": "Our challenge was to find a solution to this problem: although we live in an age where computers dominate the market and allow more and more connectivity among people from all over the world, there are still millions of students and families without computers.\nHow might this problem be solved? To make the problem space smaller, please focus on people in the State of Indiana.\n\nClick here to be taken to the project website and see how we solved it.\n",
-        "url": "/iu/2017/06/16/i101-final-project.html"
-      },
-    
-      {
-        "title": "Special Relativity simulator",
-        "excerpt": "Albert Einstein’s 1905 Theory of Special Relativity was a revolutionary theory that changed the way we think about space and time. Built off just two postulates: 1) that the speed of light is constant (around 300,000,000 meters per second) and 2) that the laws of physics apply equally in all inertial reference frames. The insight for this theory’s creation was obtained when Einstein asked a simple question: what would you see if you were traveling close to the speed of light. In 1905 while riding a bus he looked back at the clock tower in Burn, Switzerland and wondered what he would see if he looked at the clock as the bus was traveling near the speed of light. He concluded that he would see time slower relative to the people at rest next to the clock.\n\n",
-        "content": "Albert Einstein’s 1905 Theory of Special Relativity was a revolutionary theory that changed the way we think about space and time. Built off just two postulates: 1) that the speed of light is constant (around 300,000,000 meters per second) and 2) that the laws of physics apply equally in all inertial reference frames. The insight for this theory’s creation was obtained when Einstein asked a simple question: what would you see if you were traveling close to the speed of light. In 1905 while riding a bus he looked back at the clock tower in Burn, Switzerland and wondered what he would see if he looked at the clock as the bus was traveling near the speed of light. He concluded that he would see time slower relative to the people at rest next to the clock.\n\nHow can time appear to move slower for Einstein and normal to people at rest? He concluded that as you travel faster and faster time slows down relative to an observer at rest. Through a simple derivation he then found this equation: t = gamma * tau. Tau is known as the proper time which is the time elapsed by the person that experienced the start and end event. Gamma is also known as the Lorentz factor and describes how much time dilation occurs. The Lorentz factor is equal to 1 divided the square root of 1 minus the squared of the relative velocity divided by the speed of light (1/sqrt[1-(v/c)^2]). t is the time experienced by the observer at rest. Sense the Lorentz factor has a range of 1 to infinity it has a range of tau to infinity. This means that t can never be less than tau and at any speed will be greater than tau.  More about special relativity and the derivation for this formula can be found here.\n\nThis simulator used this formula to compare Einstein’s time to the clock tower’s time.  This simulator was built using p5.js.  The proper time, or reference frame which is moving, can be changed with the buttons in the lower left corner.  The speed is adjusted with the slider in the lower right corner.  Below is the built simulator and the code for it.\n\n\n",
-        "url": "/fun/science/simulation/2017/06/17/special-relativity.html"
-      },
-    
   
     
     
@@ -35,7 +21,7 @@
   {
     "title": "About",
     "excerpt": "\n",
-    "content": "View my resume\n\n\t\n\nUpdated last on June 18, 2019\n",
+    "content": "\n",
     "url": "/about/"
   },
   
@@ -49,7 +35,7 @@
   {
     "title": "Ben Duggan",
     "excerpt": "\n",
-    "content": "Welcome to my personal website devoted to displaying my personal projects.  Originally, I am from St. Lousis, Missouri and am currently a senior at Indiana University Bloomington.  I’m majoring in computer science with a specialty in intelligent systems and minoring in chemistry and math.  My goal is to go to medical schools and practice medicine and do clinical research.  I would like to do research combining health care and computing to improve patient outcomes and lower prices.  My research portfolio includes building a wireless network of RFID readers, agent-based cancer modeling and prediction &amp; analysis of neoantigens in colorectal cancer.\n",
+    "content": "Welcome to my personal website devoted to displaying my personal projects.  I am from St. Louis, Missouri and just finished my undergraduate studies at Indiana University Bloomington.  I majored in computer science with a specialty in intelligent systems and minored in chemistry.  Currently, I am a first year medical student at Indiana University School of Medicine.  My goal is to practice medicine and do clinical research combining health care and computing to improve patient outcomes and lower prices.  My research portfolio includes building a wireless network of RFID readers, agent-based cancer modeling, and prediction &amp; analysis of neoantigens in colorectal cancer.\n",
     "url": "/"
   }
   
