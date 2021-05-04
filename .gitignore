@@ -4,3 +4,7 @@ Gemfile.lock
 vendor/
 .sass-cache
 _site/
+
+# Dev
+
+.DS_Store
