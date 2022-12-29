@@ -30,6 +30,7 @@ Original theme [Alembic](https://github.com/daviddarnes/alembic)
 
 ## Run
 
+`bundle install`
 `bundle exec jekyll serve`
 
 ## Update

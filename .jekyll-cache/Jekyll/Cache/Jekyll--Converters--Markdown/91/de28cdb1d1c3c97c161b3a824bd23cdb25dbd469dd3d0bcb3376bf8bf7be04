@@ -1,0 +1,111 @@
+I"$<p>After creating <a href="https://github.com/BenSDuggan/DAPT">DAPT</a> and some other Python packages, here are my steps to creating a Python package.</p>
+
+<h2 id="1-create-repository-and-project-structure">1. Create repository and project structure</h2>
+
+<p>The goal is to make a repository that has this structure:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── [project-name]                  # A folder with the name of the Python package being created
+├── docs                            # Folder that will hold the documentation
+├── examples                        # Folder with the examples
+├── tests                           # Unit test folder
+├── .gitignore                      # Files and folders to ignore
+├── LICENSE                         # Project license
+├── README.md                       # README for the project
+└── setup.py                        # Setup file for PyPI
+</code></pre></div></div>
+
+<ol>
+  <li>Make a <a href="hhttps://github.com/new">GitHub</a> repository for the project.</li>
+  <li>To make the folders run <code class="language-plaintext highlighter-rouge">mkdir docs examples tests [project-name]</code>.</li>
+  <li>The files can be created by running <code class="language-plaintext highlighter-rouge">touch .gitignore LICENSE README.md</code>.</li>
+</ol>
+
+<h2 id="2-setup-package">2. Setup package</h2>
+
+<p>The python package is the main part of the repository. A folder with the package name should be placed in the root directory of the repository. This folder name will be the name of the project that on PyPI (pip).</p>
+
+<p>For a folder to be recognized as a package it must contain a file named <code class="language-plaintext highlighter-rouge">__init__.py</code>. This will be ran when the package is imported and does not need to contain any code. Modules can then be added to the folder. Sub-packages can also be added to the main package in the same way.</p>
+
+<p><strong><em>TODO imports</em></strong>
+There are two different ways that imports can be structured. Modules can be imported inside the <code class="language-plaintext highlighter-rouge">__init__.py</code> module or left for the importing by the end-user. With the first method, you can import a module (eg <code class="language-plaintext highlighter-rouge">from .module import *</code> [although you shouldn’t use *]). Then</p>
+
+<h2 id="3-setup-documentation">3. Setup documentation</h2>
+
+<p><strong><em>TODO:</em></strong></p>
+
+<h2 id="4-setup-unit-tests">4. Setup unit tests</h2>
+
+<p>It is a good idea to implement unit tests early into development.  <a href="https://docs.pytest.org/en/6.2.x/">pytest</a> is a great unit testing frame work to use.  It can be installed by running <code class="language-plaintext highlighter-rouge">pip install pytest</code>.  To use pytest, create a file that begins with “test_<em>.py” or ends with “</em>_test.py”.  In your Python file, add <code class="language-plaintext highlighter-rouge">import pytest</code> to the top of the module.  To create a simple test, you need to create a method with the name <code class="language-plaintext highlighter-rouge">def test_*:</code> or <code class="language-plaintext highlighter-rouge">def *_test:</code>.  The last line of your function should have an <code class="language-plaintext highlighter-rouge">assert</code> with your expected result and actual result.  For example, this is a basic test of some built in Python math function.  This module would be placed in a file named “test_math.py”.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import pytest
+
+def test_min:
+    assert min(1,3) == 1
+
+def test_max:
+    assert max(1,3) == 3
+</code></pre></div></div>
+
+<p>This test can then be ran by running <code class="language-plaintext highlighter-rouge">pytest</code> or <code class="language-plaintext highlighter-rouge">pytest test_math.py</code> in the terminal.  The former command will run python file matching the naming scheme above.  The latter method will only run the specified module.</p>
+
+<p><strong><em>TODO:</em></strong> Config options</p>
+
+<p><strong><em>TODO:</em></strong> Classes</p>
+
+<h2 id="5-setup-gitignore">5. Setup .gitignore</h2>
+
+<p>For my <code class="language-plaintext highlighter-rouge">.gitignore</code> file I use this basic template:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Dev env stuff
+.vscode
+.DS_Store
+
+# Python stuff
+.pytest_cache
+__pycache__
+*.pyc
+
+# pip stuff
+dapt.egg-info/*
+dist/*
+
+# Unwanted files
+
+</code></pre></div></div>
+
+<h2 id="6-pick-a-license">6. Pick a license</h2>
+
+<p>A great place to pick a license is <a href="https://choosealicense.com/">https://choosealicense.com/</a>.  For most projects I use the <a href="https://github.com/licenses/license-templates/blob/master/templates/mit.txt">MIT</a> license which allows people to do pretty much anything wth your code and they must give you credit.  The <a href="https://github.com/licenses/license-templates/blob/master/templates/bsd3.txt">BSD-3</a> licence is also good as it doesn’t allow your name to be used as an endorsement for derived projects. Once you have picked the licence, copy the legalese into the <a href="/LICENSE">LICENSE</a> file.</p>
+
+<h2 id="7-getting-the-package-ready-for-pypi">7. Getting the package ready for PyPI</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import setuptools
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
+    name="&lt;package-name&gt;",
+    packages=["&lt;package-name&gt;", "&lt;package-name&gt;.&lt;sub-package&gt;"],
+    version="1.0.1a",
+    license="MIT",
+    author="&lt;your-name&gt;",
+    author_email="&lt;your-email&gt;",
+    description="&lt;short-description&gt;",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="&lt;repo-url&gt;",
+    keywords=["&lt;tag-1&gt;", "&lt;tag-2&gt;"],
+    install_requires=[
+        "flask&gt;=1.0.2"
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires="&gt;=3.7",
+)
+</code></pre></div></div>
+
+:ET

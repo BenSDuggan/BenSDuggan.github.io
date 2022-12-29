@@ -1,0 +1,2 @@
+I"¿<p>The Creality Ender 3 stock firmware lacks thermal runaway protection and thus is unsafe. Many people have done this before, but this post shows the steps that worked for me. There are good open-source firmware options such as <a href="https://marlinfw.org/">Marlin</a>. <a href="https://howchoo.com/ender3/ender-3-bootloader-firmware-update-marlin">This tutorial</a> was great at showing how to upload the firmware and should be consulted.</p>
+:ET

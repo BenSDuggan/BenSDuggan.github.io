@@ -1,0 +1,88 @@
+I"�<p>The Creality Ender 3 stock firmware lacks thermal runaway protection and thus is unsafe. Many people have done this before, but this post shows the steps that worked for me. There are good open-source firmware options such as <a href="https://marlinfw.org/">Marlin</a>. <a href="https://howchoo.com/ender3/ender-3-bootloader-firmware-update-marlin">This tutorial</a> was great at showing how to upload the firmware and should be consulted.</p>
+
+<p>I will place the general steps outlined in the tutorial below and what I did differently.</p>
+
+<h1 id="add-the-bootloader">Add the bootloader</h1>
+
+<p>The bootloader is the first piece of code run when a processor starts. By updating the bootloader the Ender 3 the firmware can be uploaded over USB. A bootloader is technically not necessary, but it makes changing the firmware much easier.</p>
+
+<h2 id="prepare-the-arduino-ide">Prepare the Arduino IDE</h2>
+
+<ol>
+  <li>Install the <code class="language-plaintext highlighter-rouge">U8glib</code> library</li>
+  <li>Add the Sanguino board
+    <ol>
+      <li>Open Arduino preferences</li>
+      <li>Add this to the “Additional Boards Manager URLs” https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json</li>
+      <li>Go to board manager and add the Sanguino board</li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="make-the-arduino-an-isp">Make the Arduino an ISP</h2>
+
+<ol>
+  <li>Open the Arduino ISP example sketch</li>
+  <li>Plug in the Arduino Uno</li>
+  <li>Tools –&gt; select the board</li>
+  <li>Select Arduino Uno as the board and the correct port</li>
+  <li>Upload to the Arduino</li>
+</ol>
+
+<h2 id="connect-the-arduino-to-the-ender-3">Connect the Arduino to the Ender 3</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ender 3</th>
+      <th>Arduino Uno</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5V</td>
+      <td>5V</td>
+    </tr>
+    <tr>
+      <td>GND</td>
+      <td>GND</td>
+    </tr>
+    <tr>
+      <td>MISO</td>
+      <td>MISO</td>
+    </tr>
+    <tr>
+      <td>MOSI</td>
+      <td>MOSI</td>
+    </tr>
+    <tr>
+      <td>SCK</td>
+      <td>SCK</td>
+    </tr>
+    <tr>
+      <td>RESET</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="burn-bootloader">Burn bootloader</h2>
+
+<p>Select the following:</p>
+
+<ol>
+  <li>Tools –&gt; Boards –&gt; Sanguino</li>
+  <li>Tools –&gt; Processor –&gt; Atmega 1284 or Atmega 1284p (16 MHz)</li>
+  <li>Tools –&gt; Programmer –&gt; Arduino as ISP</li>
+  <li>Tools –&gt; Burn bootlader</li>
+</ol>
+
+<p><strong><em>The Ender 3 now has a bootloader!</em></strong> This shouldn’t have to be done again.</p>
+
+<h1 id="upload-the-new-firmware">Upload the new firmware</h1>
+
+<p>The <a href="https://marlinfw.org/">Marlin</a> firmware will be used. There are many default configs available on their <a href="https://github.com/MarlinFirmware/Configurations">Configurations GitHub</a>. I used the <a href="https://github.com/MarlinFirmware/Configurations/tree/import-2.0.x/config/examples/Creality/Ender-3/CrealityV1">CrealityV1</a> firmware for my Ender 3. Once the config files have been chosen, the Marlin Arduino file can be opened. My firmware is located <a href="">here</a>.</p>
+
+<h2 id="upload">Upload</h2>
+
+:ET
