@@ -1,6 +1,6 @@
 # Ignores
 
-#Gemfile.lock
+Gemfile.lock
 vendor/
 .sass-cache
 _site/
