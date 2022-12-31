@@ -1,8 +1,13 @@
 ---
-layout: post
 title:  "How to Upgrade the Ender 3 Firmware"
 date:   2021-07-29 14:00:02 -0500
-categories: 3d-printing solution
+categories: [Blog]
+tags: [3d-printing, solution]
+math: false
+mermaid: false
+image:
+  path: https://images.unsplash.com/photo-1611117775350-ac3950990985?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80
+  alt: Ender 3 3D printer
 ---
 
 
